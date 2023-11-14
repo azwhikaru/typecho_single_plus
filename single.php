@@ -3,63 +3,30 @@
 class Single
 {
     static $name = "Single";
-    static $version = "2.1";
+    static $version = "2.1_Plus";
 
     static $author = "", $authorCache = "";
 
     // 更新检测
     static function update()
     {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://api.paugram.com/update/?name=" . self::$name . "&current=" . self::$version . "&site=" . $_SERVER['HTTP_HOST']);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-
-        $update = curl_exec($ch);
-        $update = json_decode($update, true);
-
-        curl_close($ch);
-
-        if (isset($update["name"])) self::$name = $update["name"];
-?>
+    ?>
         <style>
-            .dreamer-paul {
+            .detail {
                 text-align: center;
                 margin: 1em 0;
             }
 
-            .dreamer-paul>* {
+            .detail>* {
                 margin: 0 0 1rem
             }
 
-            .buttons a {
-                background: #467b96;
-                color: #fff;
-                border-radius: 4px;
-                padding: .5em .75em;
-                display: inline-block
-            }
         </style>
-        <div class="dreamer-paul">
+        <div class="detail">
             <h2><?php echo self::$name . " (" . self::$version . ")" ?></h2>
-            <p>By: <a href='https://github.com/Dreamer-Paul'>Dreamer-Paul</a></p>
-            <p class="buttons">
-                <?php if (isset($update['docs'])) : ?>
-                    <a href="<?php echo $update['docs'] ?>">项目介绍</a>
-                <?php endif; ?>
-                <?php if (isset($update['link'])) : ?>
-                    <a href="<?php echo $update['link'] ?>">更新日志</a>
-                <?php endif; ?>
-            </p>
-            <?php if (isset($update['text'])) : ?>
-                <p><?php echo $update['text'] ?></p>
-            <?php endif; ?>
-            <?php if (isset($update['message'])) : ?>
-                <p><?php echo $update['message'] ?></p>
-            <?php endif; ?>
+            <p>By: <a href='https://github.com/Dreamer-Paul'>Dreamer-Paul</a> & <a href='https://github.com/azwhikaru'>Ayabe</a></p>
         </div>
-<?php
+    <?php
     }
 
     // 夜间模式
