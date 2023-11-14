@@ -42,6 +42,16 @@
             echo "已运行 $daysDifference 天";
             ?></p>
             <?php endif; ?>
+            <?php if ($this->options->show_uptime) : ?>
+            <p><?php
+            $uptimeSeconds = time() - strtotime(trim(shell_exec('uptime -s')));
+            $days = floor($uptimeSeconds / (60 * 60 * 24));
+            $hours = floor(($uptimeSeconds % (60 * 60 * 24)) / (60 * 60));
+            $minutes = floor(($uptimeSeconds % (60 * 60)) / 60);
+            $seconds = $uptimeSeconds % 60;
+            echo sprintf("服务器已连续运行 %d 天 %d 时 %d 分 %d 秒", $days, $hours, $minutes, $seconds);
+            ?></p>
+            <?php endif; ?>
         </section>
     </div>
 </footer>

@@ -20,6 +20,19 @@ function themeConfig($form)
     $built_date = new Typecho_Widget_Helper_Form_Element_Text('built_date', NULL, NULL, _t('建站日期'), _t('在页面底部显示网站运行时长, 不填则不显示。格式为 yyyy-MM-dd, 如 <a>2023-08-28</a>'));
     $form->addInput($built_date);
 
+    // 显示服务器开机时长
+    $show_uptime = new Typecho_Widget_Helper_Form_Element_Radio(
+        'show_uptime',
+        array(
+            '0' => _t('关闭'),
+            '1' => _t('开启'),
+        ),
+        '0',
+        _t('显示服务器开机时长'),
+        _t('在页面底部显示服务器开机时长 (<a>uptime</a>)。只支持 Linux')
+    );
+    $form->addInput($show_uptime);
+
     // 自定义社交链接
     $home_social = new Typecho_Widget_Helper_Form_Element_Textarea('home_social', NULL, NULL, _t('自定义社交链接'), _t('在这里填入你的自定义社交链接, 不填则不输出。(格式请看<a href="https://github.com/Dreamer-Paul/Single/releases/tag/1.1" target="_blank">帮助信息</a>)'));
     $form->addInput($home_social);
