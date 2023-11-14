@@ -38,7 +38,7 @@ function themeConfig($form)
     $form->addInput($show_uptime);
 
     // 自定义服务器开机时长文本
-    $custom_show_uptime = new Typecho_Widget_Helper_Form_Element_Text('custom_show_uptime', NULL, NULL, _t('自定义服务器开机时长文本'), _t('依次使用 4 个 <a>%d</a> 代替天、时、分、秒, 如 <a>已连续运行 %d 天 %d 时 %d 分 %d 秒</a>，不填则使用示例格式。需要先启用显示服务器开机时长'));
+    $custom_show_uptime = new Typecho_Widget_Helper_Form_Element_Text('custom_show_uptime', NULL, NULL, _t('自定义服务器开机时长文本'), _t('依次使用 4 个 <a>%d</a> 代替天、时、分、秒, 如 <a>已连续运行 %d 天 %d 时 %d 分 %d 秒</a>, 不填则使用示例格式。需要先启用显示服务器开机时长'));
     $form->addInput($custom_show_uptime);
 
     // 主题评论区开关
@@ -53,6 +53,10 @@ function themeConfig($form)
         _t('开启或关闭主题评论区。<b>注意, 这个选项不会影响后端评论接口, 只用于显示和隐藏前端评论区</b>')
     );
     $form->addInput($enable_comment);
+
+    // 自定义文章时效
+    $article_term = new Typecho_Widget_Helper_Form_Element_Text('article_term', NULL, NULL, _t('自定义文章时效'), _t('当文章发布时间超过阈值天数时, 显示文章内容可能已经过期的提示, 如 <a>180</a> 天, 不填则不输出'));
+    $form->addInput($article_term);
 
     // 自定义社交链接
     $home_social = new Typecho_Widget_Helper_Form_Element_Textarea('home_social', NULL, NULL, _t('自定义社交链接'), _t('在这里填入你的自定义社交链接, 不填则不输出。(格式请看<a href="https://github.com/Dreamer-Paul/Single/releases/tag/1.1" target="_blank">帮助信息</a>)'));
