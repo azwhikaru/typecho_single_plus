@@ -55,8 +55,12 @@ function themeConfig($form)
     $form->addInput($enable_comment);
 
     // 自定义文章时效
-    $article_term = new Typecho_Widget_Helper_Form_Element_Text('article_term', NULL, NULL, _t('自定义文章时效'), _t('当文章发布时间超过阈值天数时, 显示文章内容可能已经过期的提示, 如 <a>180</a> 天, 不填则不输出'));
+    $article_term = new Typecho_Widget_Helper_Form_Element_Text('article_term', NULL, NULL, _t('显示文章时效'), _t('当文章发布时间超过阈值天数时, 显示文章内容可能已经过期的提示, 如 <a>180</a> 天, 不填则不输出'));
     $form->addInput($article_term);
+
+    // 自定义文章时效文本
+    $custom_article_term = new Typecho_Widget_Helper_Form_Element_Text('custom_article_term', NULL, NULL, _t('自定义文章时效文本'), _t('使用 <a>%s</a> 代替天数, 如 <a>注意，这篇文章上次修改于 %s 天前，其内容可能已经失效</a>，不填则使用示例格式。需要先启用显示文章时效'));
+    $form->addInput($custom_article_term);
 
     // 自定义社交链接
     $home_social = new Typecho_Widget_Helper_Form_Element_Textarea('home_social', NULL, NULL, _t('自定义社交链接'), _t('在这里填入你的自定义社交链接, 不填则不输出。(格式请看<a href="https://github.com/Dreamer-Paul/Single/releases/tag/1.1" target="_blank">帮助信息</a>)'));

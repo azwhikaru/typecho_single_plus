@@ -20,8 +20,9 @@
         </section>
         <article class="post-content">
             <?php if ($this->options->article_term) : ?>
+                <?php $this->modified = 1605280551 ?>
                 <?php if (time() - $this->modified >= ($this->options->article_term) * 24 * 60 * 60) : ?>
-                <blockquote>注意，这篇文章上次修改于 <?php echo ceil((time() - $this->modified) / 86400) ?> 天前，其内容可能已经失效</blockquote>
+                    <blockquote><?php echo sprintf($this->options->custom_article_term ? $this->options->custom_article_term : "注意，这篇文章上次修改于 %s 天前，其内容可能已经失效", ceil((time() - $this->modified) / 86400)) ?></blockquote>
             <?php endif ?>
             <?php endif; ?>
             <?php $this->content(); ?>
