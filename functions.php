@@ -63,6 +63,10 @@ function themeConfig($form)
     );
     $form->addInput($copy_notice);
 
+    // 自定义复制提示
+    $custom_copy_notice = new Typecho_Widget_Helper_Form_Element_Textarea('custom_copy_notice', NULL, NULL, _t('自定义复制提示'), _t('自定义复制时弹出的提示内容, 不填则使用默认文本。需要先启用复制提示'));
+    $form->addInput($custom_copy_notice);
+
     // 信息栏
     $widget_set = new Typecho_Widget_Helper_Form_Element_Radio(
         'widget_set',
