@@ -43,7 +43,7 @@ $this->need('header.php');
                             <span class="tags"><?php $this->tags('，', true, '暂无'); ?></span>
                         <?php endif; ?>
                         <?php if (!empty($this->options->archive_meta) && in_array('show_comments', $this->options->archive_meta)) : ?>
-                            <span class="comments"><?php $this->commentsNum('%d °C'); ?></span>
+                            <span class="comments"><?php $this->commentsNum('%d'); ?></span>
                         <?php endif; ?>
                     </div>
                 </div>
