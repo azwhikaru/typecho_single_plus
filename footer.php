@@ -39,7 +39,7 @@
             $startDateTimestamp = strtotime($this->options->built_date);
             $timeDifference = time() - $startDateTimestamp;
             $daysDifference = floor($timeDifference / (60 * 60 * 24));
-            echo "已运行 $daysDifference 天";
+            echo sprintf($this->options->custom_built_date ? $this->options->custom_built_date : "已运行 %s 天", $daysDifference);
             ?></p>
             <?php endif; ?>
             <?php if ($this->options->show_uptime) : ?>
@@ -49,7 +49,7 @@
             $hours = floor(($uptimeSeconds % (60 * 60 * 24)) / (60 * 60));
             $minutes = floor(($uptimeSeconds % (60 * 60)) / 60);
             $seconds = $uptimeSeconds % 60;
-            echo sprintf("服务器已连续运行 %d 天 %d 时 %d 分 %d 秒", $days, $hours, $minutes, $seconds);
+            echo sprintf($this->options->custom_show_uptime ? $this->options->custom_show_uptime : "已连续运行 %d 天 %d 时 %d 分 %d 秒", $days, $hours, $minutes, $seconds);
             ?></p>
             <?php endif; ?>
         </section>

@@ -17,8 +17,12 @@ function themeConfig($form)
     $form->addInput($background);
 
     // 显示建站日期
-    $built_date = new Typecho_Widget_Helper_Form_Element_Text('built_date', NULL, NULL, _t('建站日期'), _t('在页面底部显示网站运行时长, 不填则不显示。格式为 yyyy-MM-dd, 如 <a>2023-08-28</a>'));
+    $built_date = new Typecho_Widget_Helper_Form_Element_Text('built_date', NULL, NULL, _t('显示建站日期'), _t('在页面底部显示网站运行时长, 不填则不显示。格式为 <a>yyyy-MM-dd</a>, 如 2023-08-28'));
     $form->addInput($built_date);
+
+    // 自定义建站日期文本
+    $custom_built_date = new Typecho_Widget_Helper_Form_Element_Text('custom_built_date', NULL, NULL, _t('自定义建站日期文本'), _t('使用 <a>%s</a> 代替天数, 如 <a>已运行 %s 天</a>，不填则使用示例格式。需要先启用显示建站日期'));
+    $form->addInput($custom_built_date);
 
     // 显示服务器开机时长
     $show_uptime = new Typecho_Widget_Helper_Form_Element_Radio(
@@ -32,6 +36,10 @@ function themeConfig($form)
         _t('在页面底部显示服务器开机时长 (<a>uptime</a>)。只支持 Linux')
     );
     $form->addInput($show_uptime);
+
+    // 自定义服务器开机时长文本
+    $custom_show_uptime = new Typecho_Widget_Helper_Form_Element_Text('custom_show_uptime', NULL, NULL, _t('自定义服务器开机时长文本'), _t('依次使用 4 个 <a>%d</a> 代替天、时、分、秒, 如 <a>已连续运行 %d 天 %d 时 %d 分 %d 秒</a>，不填则使用示例格式。需要先启用显示服务器开机时长'));
+    $form->addInput($custom_show_uptime);
 
     // 自定义社交链接
     $home_social = new Typecho_Widget_Helper_Form_Element_Textarea('home_social', NULL, NULL, _t('自定义社交链接'), _t('在这里填入你的自定义社交链接, 不填则不输出。(格式请看<a href="https://github.com/Dreamer-Paul/Single/releases/tag/1.1" target="_blank">帮助信息</a>)'));
