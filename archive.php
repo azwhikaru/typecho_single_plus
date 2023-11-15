@@ -33,7 +33,7 @@
                     </div>
                 <?php endwhile; ?>
             <?php else : ?>
-                <p>没有找到结果 (QWQ)</p>
+                <h2 align='center'>没有找到结果</h2>
             <?php endif; ?>
         </section>
         <?php $this->pageNav('&laquo;', '&raquo;', 3, "...", array('wrapTag' => 'section', 'itemTag' => 'span')); ?>

@@ -4,9 +4,7 @@
 <main>
     <div class="wrap">
         <div class="error-page">
-            <h1>404</h1>
-            <p>找不到页面啦</p>
-            <img src="<?php $this->options->themeUrl('img/404.png'); ?>" />
+            <h2 align='center'>找不到页面</h2>
         </div>
     </div>
 </main>
