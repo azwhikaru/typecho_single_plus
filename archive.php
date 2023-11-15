@@ -5,10 +5,10 @@
     <div class="wrap min">
         <section class="home-title">
             <h1><?php $this->archiveTitle(array(
-                    'category' => _t('“%s”'),
-                    'search'   => _t('含关键词“%s”的文章'),
-                    'tag'      => _t('含标签“%s”的文章'),
-                    'author'   => _t('“%s”发布的文章')
+                    'category' => _t('"%s"'),
+                    'search'   => _t('含关键词 "%s" 的文章'),
+                    'tag'      => _t('含标签 "%s" 的文章'),
+                    'author'   => _t('"%s" 发布的文章')
                 ), ""); ?></h1>
             <?php if ($this->is('category')) : ?><span><?php echo $this->getDescription() ?><?php endif; ?>
         </section>

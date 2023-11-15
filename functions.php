@@ -122,7 +122,7 @@ function themeConfig($form)
         ),
         '0',
         _t('是否显示信息栏'),
-        _t('在页尾显示 “最新文章”、“最近评论” 和 “时光机”')
+        _t('在页尾显示 "最新文章"、"最近评论" 和 "时光机"')
     );
     $form->addInput($widget_set);
 
