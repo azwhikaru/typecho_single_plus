@@ -124,8 +124,12 @@ function themeConfig($form)
     );
     $form->addInput($enable_comment);
 
+    // 自定义评论关闭时的提示文本
+    $custom_disabled_comment_hint = new Typecho_Widget_Helper_Form_Element_Textarea('custom_disabled_comment_hint', NULL, NULL, _t('自定义评论关闭时的提示文本'), _t('当评论区关闭时显示的提示文本, 如 <a>评论已关闭</a>，不填则使用示例格式'));
+    $form->addInput($custom_disabled_comment_hint);
+
     // 自定义评论提示文本
-    $custom_comment_hint = new Typecho_Widget_Helper_Form_Element_Text('custom_comment_hint', NULL, NULL, _t('自定义评论提示文本'), _t('要在评论输入框显示的提示文本, 如 <a>在这里输入评论</a>，不填则使用示例格式'));
+    $custom_comment_hint = new Typecho_Widget_Helper_Form_Element_Textarea('custom_comment_hint', NULL, NULL, _t('自定义评论提示文本'), _t('要在评论输入框显示的提示文本, 如 <a>在这里输入评论</a>，不填则使用示例格式'));
     $form->addInput($custom_comment_hint);
 
     // 自定义作者信息

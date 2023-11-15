@@ -107,5 +107,5 @@
 
     </section>
 <?php else: ?>
-    <p align="center">评论已关闭</p>
+    <p align="center"><?php echo $this->options->custom_disabled_comment_hint ? $this->options->custom_disabled_comment_hint : "评论已关闭" ?></p>
 <?php endif; ?>
