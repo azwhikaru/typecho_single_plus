@@ -113,6 +113,10 @@ function themeConfig($form)
     $custom_copy_notice = new Typecho_Widget_Helper_Form_Element_Textarea('custom_copy_notice', NULL, NULL, _t('自定义复制提示'), _t('自定义复制时弹出的提示内容, 不填则使用默认文本。需要先启用复制提示'));
     $form->addInput($custom_copy_notice);
 
+    // 自定义底部文本
+    $custom_footer = new Typecho_Widget_Helper_Form_Element_Textarea('custom_footer', NULL, NULL, _t('自定义页面底部文本'), _t('自定义页面底部文本, 如用于显示备案号等信息, 支持 HTML, 不填则使用默认文本'));
+    $form->addInput($custom_footer);
+
     // 信息栏
     $widget_set = new Typecho_Widget_Helper_Form_Element_Radio(
         'widget_set',

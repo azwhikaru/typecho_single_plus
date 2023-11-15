@@ -56,7 +56,7 @@
             <div class="search-btn"></div>
         </div>
         <form class="head-search" method="post">
-            <input type="text" name="s" placeholder="搜索什么？">
+            <input type="text" name="s" placeholder="输入关键词">
         </form>
         <nav class="head-menu">
             <a href="<?php $this->options->siteUrl(); ?>">首页</a>

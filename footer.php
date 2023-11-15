@@ -34,6 +34,9 @@
         <?php endif; ?>
         <section class="sub-footer">
             <p>© <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>. All Rights Reserved. Theme By <a href="https://github.com/Dreamer-Paul/Single" target="_blank" rel="nofollow">Single</a>.</p>
+            <?php if ($this->options->custom_footer) : ?>
+            <?php echo $this->options->custom_footer ?>
+            <?php endif; ?>
             <?php if ($this->options->built_date) : ?>
             <p><?php
             $startDateTimestamp = strtotime($this->options->built_date);
