@@ -48,11 +48,7 @@
                 </div>
             </section>
         <?php endif; ?>
-        <?php if ($this->options->enable_comment) : ?>
-            <?php $this->need('comments.php'); ?>
-        <?php else : ?>
-            <p align="center">评论已关闭</p>
-        <?php endif; ?>
+        <?php $this->need('comments.php'); ?>
     </div>
 </main>
 
