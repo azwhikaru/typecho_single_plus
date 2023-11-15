@@ -173,10 +173,14 @@ var Paul_Single = function (config) {
 
     // 代码行号显示
     if (config.code_linenumber) {
-        var code = content.querySelectorAll("code");
-        code.forEach(function(code) {
-            code.classList.add('line-numbers');
-        });
+        try {
+            var code = content.querySelectorAll("code");
+            code.forEach(function(code) {
+                code.classList.add('line-numbers');
+            });
+        } catch (error) {
+            
+        }
     }
 
     // 网页语言设置
