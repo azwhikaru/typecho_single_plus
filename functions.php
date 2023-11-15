@@ -41,6 +41,19 @@ function themeConfig($form)
     $custom_show_uptime = new Typecho_Widget_Helper_Form_Element_Text('custom_show_uptime', NULL, NULL, _t('自定义服务器开机时长文本'), _t('依次使用 4 个 <a>%d</a> 代替天、时、分、秒, 如 <a>已连续运行 %d 天 %d 时 %d 分 %d 秒</a>, 不填则使用示例格式。需要先启用显示服务器开机时长'));
     $form->addInput($custom_show_uptime);
 
+    // 行号显示开关开关
+    $enable_code_linenumber = new Typecho_Widget_Helper_Form_Element_Radio(
+        'enable_code_linenumber',
+        array(
+            '0' => _t('关闭'),
+            '1' => _t('开启'),
+        ),
+        '0',
+        _t('代码行号显示'),
+        _t('开启或关闭 Prism 行号显示, 注意当前 Prism 需包含行号显示功能')
+    );
+    $form->addInput($enable_code_linenumber);
+
     // 主题评论区开关
     $enable_comment = new Typecho_Widget_Helper_Form_Element_Radio(
         'enable_comment',

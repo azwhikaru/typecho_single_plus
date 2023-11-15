@@ -165,6 +165,14 @@ var Paul_Single = function (config) {
     if (config.theme_color) {
         document.body.style.setProperty('--theme', config.theme_color)
     }
+
+    // 代码行号显示
+    if (config.code_linenumber) {
+        var code = content.querySelectorAll("code");
+        code.forEach(function(code) {
+            code.classList.add('line-numbers');
+        });
+    }
 };
 
 // 图片缩放
