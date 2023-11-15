@@ -15,7 +15,7 @@
 /* 0 - 全局
 -------------------------------- */
 :root{
-    --blue: #6f9fc7;
+    --theme: #6f9fc7;
     --light-blue: #9fcff7;
 
     --border: #ddd;
@@ -59,8 +59,7 @@ body::-webkit-scrollbar{
 }
 
 a{
-    color: #6f9fc7;
-    color: var(--blue);
+    color: var(--theme);
 }
 a:hover{
     color: #9fcff7;
@@ -72,14 +71,12 @@ h1, h2, h3, h4, h5, h6{ font-weight: normal }
 hr{ border-color: #eee }
 
 em{
-    background-color: #6f9fc7;
-    background-color: var(--blue);
+    background-color: var(--theme);
 }
 
 .btn{
     color: #fff;
-    background-color: #6f9fc7;
-    background-color: var(--blue);
+    background-color: var(--theme);
 }
 .btn:hover{
     color: #fff;
@@ -97,7 +94,7 @@ pre{
 }
 
 blockquote{
-    border-color: #6f9fc7;
+    border-color: var(--theme);
     border-radius: .25em;
     border-radius: var(--radius);
     background-color: #ecf1f5;
@@ -119,7 +116,7 @@ input, textarea, pre, hr, blockquote{
     color: #bbb;
     background-color: #222;
 
-    --blue: #6e8aad;
+    --theme: var(--theme);
     --light-blue: #6f9fc7;
 
     --border: #444;
@@ -396,8 +393,8 @@ main img {
 }
 
 .home-title h1{
-    color: #6e8aad;
-    color: var(--blue);
+    color: #var(--theme);
+    color: var(--theme);
 }
 
 .home-title span{
@@ -508,7 +505,7 @@ main img {
 }
 
 .post-title h2, .page-title h2{
-    color: #6e8aad;
+    color: var(--theme);
     margin-right: .25rem;
     display: inline-block;
 }
@@ -552,8 +549,7 @@ article h4:before,
 article h5:before,
 article h6:before{
     content: "#";
-    color: #6f9fc7;
-    color: var(--blue);
+    color: var(--theme);
     margin-right: .5em;
 }
 

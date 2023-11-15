@@ -66,6 +66,7 @@
     var single = new Paul_Single({
         copyright: <?php if ($this->options->copy_notice == 1) : ?>true<?php else : ?>false<?php endif; ?>,
         custom_copy_notice: <?php if ($this->options->custom_copy_notice) : ?><?php echo json_encode(htmlspecialchars($this->options->custom_copy_notice)) ?><?php else : ?>false<?php endif; ?>,
+        theme_color: <?php if ($this->options->custom_theme_color) : ?><?php echo json_encode(htmlspecialchars($this->options->custom_theme_color)) ?><?php else : ?>false<?php endif; ?>,
         night: <?php if ($this->options->night_mode == 1) : ?>true<?php else : ?>false<?php endif; ?>
     });
 </script>

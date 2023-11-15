@@ -34,11 +34,11 @@ var Paul_Single = function (config) {
 
     // 关灯切换
     this.night = function () {
-        if(body.classList.contains("dark-theme")){
+        if (body.classList.contains("dark-theme")) {
             body.classList.remove("dark-theme");
             document.cookie = "night=false;" + "path=/;" + "max-age=21600";
         }
-        else{
+        else {
             body.classList.add("dark-theme");
             document.cookie = "night=true;" + "path=/;" + "max-age=21600";
         }
@@ -50,7 +50,7 @@ var Paul_Single = function (config) {
         var wrap = ks.select(".wrap");
         var headings = content.querySelectorAll("h1, h2, h3, h4, h5, h6");
 
-        if(headings.length > 0){
+        if (headings.length > 0) {
             body.classList.add("has-trees");
 
             var trees = ks.create("section", {
@@ -63,7 +63,7 @@ var Paul_Single = function (config) {
 
                 t.id = "title-" + id;
 
-                switch (t.tagName){
+                switch (t.tagName) {
                     case "H2": cls = "item-2"; break;
                     case "H3": cls = "item-3"; break;
                     case "H4": cls = "item-4"; break;
@@ -71,7 +71,7 @@ var Paul_Single = function (config) {
                     case "H6": cls = "item-6"; break;
                 }
 
-                trees.appendChild(ks.create("a", {class: cls, text: text, href: "#title-" + id}));
+                trees.appendChild(ks.create("a", { class: cls, text: text, href: "#title-" + id }));
 
                 id++;
             });
@@ -80,7 +80,7 @@ var Paul_Single = function (config) {
 
             function toggle_tree() {
                 var buttons = ks.select("footer .buttons");
-                var btn = ks.create("a", {class: "toggle-list"});
+                var btn = ks.create("a", { class: "toggle-list" });
                 buttons.appendChild(btn);
 
                 btn.addEventListener("click", function () {
@@ -95,7 +95,7 @@ var Paul_Single = function (config) {
     this.links = function () {
         var l = content.getElementsByTagName("a");
 
-        if(l){
+        if (l) {
             ks.each(l, function (t) {
                 t.target = "_blank";
             });
@@ -126,7 +126,7 @@ var Paul_Single = function (config) {
 
     this.header();
 
-    if(content){
+    if (content) {
         this.tree();
         this.links();
         this.comment_list();
@@ -136,29 +136,34 @@ var Paul_Single = function (config) {
     window.addEventListener("scroll", this.to_top);
 
     // 如果开启自动夜间模式
-    if(config.night){
+    if (config.night) {
         var hour = new Date().getHours();
 
-        if(document.cookie.indexOf("night") === -1 && (hour <= 5 || hour >= 22)){
+        if (document.cookie.indexOf("night") === -1 && (hour <= 5 || hour >= 22)) {
             document.body.classList.add("dark-theme");
             document.cookie = "night=true;" + "path=/;" + "max-age=21600";
         }
     }
-    else if(document.cookie.indexOf("night") !== -1){
-        if(document.cookie.indexOf("night=true") !== -1){
+    else if (document.cookie.indexOf("night") !== -1) {
+        if (document.cookie.indexOf("night=true") !== -1) {
             document.body.classList.add("dark-theme");
         }
-        else{
+        else {
             document.body.classList.remove("dark-theme");
         }
     }
 
     // 如果开启复制内容提示
-    if(config.copyright){
+    if (config.copyright) {
         document.oncopy = function () {
             var default_notice = config.custom_copy_notice ? config.custom_copy_notice : "复制内容请注明来源并保留版权信息!";
-            ks.notice(default_notice, {color: "yellow", overlay: true})
+            ks.notice(default_notice, { color: "yellow", overlay: true })
         };
+    }
+
+    // 全站主题色自定义
+    if (config.theme_color) {
+        document.body.style.setProperty('--theme', config.theme_color)
     }
 };
 
@@ -167,5 +172,5 @@ ks.image(".post-content:not(.is-special) img, .page-content:not(.is-special) img
 
 // 请保留版权说明
 if (window.console && window.console.log) {
-    console.log("%c Single %c https://paugram.com ","color: #fff; margin: 1em 0; padding: 5px 0; background: #ffa628;","margin: 1em 0; padding: 5px 0; background: #efefef;");
+    console.log("%c Single %c https://paugram.com ", "color: #fff; margin: 1em 0; padding: 5px 0; background: #ffa628;", "margin: 1em 0; padding: 5px 0; background: #efefef;");
 }
