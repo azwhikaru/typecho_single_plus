@@ -42,7 +42,7 @@ $this->need('header.php');
                         <?php if (!empty($this->options->archive_meta) && in_array('show_tags', $this->options->archive_meta)) : ?>
                             <span class="tags"><?php $this->tags('，', true, '暂无'); ?></span>
                         <?php endif; ?>
-                        <?php if (!empty($this->options->archive_meta) && in_array('show_comments', $this->options->archive_meta)) : ?>
+                        <?php if (!empty($this->options->archive_meta) && in_array('show_comments', $this->options->archive_meta) && $this->options->enable_comment) : ?>
                             <span class="comments"><?php $this->commentsNum('%d'); ?></span>
                         <?php endif; ?>
                     </div>
