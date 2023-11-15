@@ -16,7 +16,7 @@
 -------------------------------- */
 :root{
     --theme: #6f9fc7;
-    --light-blue: #9fcff7;
+    --theme-focus: #9fcff7;
 
     --border: #ddd;
     --light-border: #eee;
@@ -49,8 +49,8 @@ body:before{
     width: 8px;
     height: 8px;
 }
-::-webkit-scrollbar-thumb{ background: #6f9fc7 }
-::-webkit-scrollbar-thumb:hover{ background: #9fcff7 }
+::-webkit-scrollbar-thumb{ background: var(--theme) }
+::-webkit-scrollbar-thumb:hover{ background: var(--theme-focus) }
 
 body::-webkit-scrollbar{
     border-left: 1px solid #eee;
@@ -62,8 +62,7 @@ a{
     color: var(--theme);
 }
 a:hover{
-    color: #9fcff7;
-    color: var(--light-blue);
+    color: var(--theme-focus);
 }
 
 h1, h2, h3, h4, h5, h6{ font-weight: normal }
@@ -80,8 +79,7 @@ em{
 }
 .btn:hover{
     color: #fff;
-    background: #9fcff7;
-    background: var(--light-blue);
+    background: var(--theme-focus);
 }
 
 pre{
@@ -117,7 +115,7 @@ input, textarea, pre, hr, blockquote{
     background-color: #222;
 
     --theme: var(--theme);
-    --light-blue: #6f9fc7;
+    --theme-focus: #6f9fc7;
 
     --border: #444;
     --light-border: #333;

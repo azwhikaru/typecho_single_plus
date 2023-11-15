@@ -166,6 +166,11 @@ var Paul_Single = function (config) {
         document.body.style.setProperty('--theme', config.theme_color)
     }
 
+    // 全站焦点色自定义
+    if (config.focus_color) {
+        document.body.style.setProperty('--theme-focus', config.focus_color)
+    }
+
     // 代码行号显示
     if (config.code_linenumber) {
         var code = content.querySelectorAll("code");
