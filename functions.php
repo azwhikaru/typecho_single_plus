@@ -1,6 +1,7 @@
 <?php
 
-if (!defined('__TYPECHO_ROOT_DIR__')) exit;
+if (!defined('__TYPECHO_ROOT_DIR__'))
+    exit;
 
 require_once("single.php");
 
@@ -15,6 +16,28 @@ function themeConfig($form)
     // 自定义背景图
     $background = new Typecho_Widget_Helper_Form_Element_Text('background', NULL, NULL, _t('背景图片'), _t('在这里填入一张图片地址, 不填则显示纯色背景'));
     $form->addInput($background);
+
+    // 自定义全站主题色
+    $custom_theme_color = new Typecho_Widget_Helper_Form_Element_Text('custom_theme_color', NULL, NULL, _t('全局强调色'), _t('在这里输入十六进制颜色, 如 <a>#6F9FC7</a>。留空则使用示例格式'));
+    $form->addInput($custom_theme_color);
+
+    // 自定义样式表
+    $custom_css = new Typecho_Widget_Helper_Form_Element_Textarea('custom_css', NULL, NULL, _t('自定义样式表'), _t('在这里填入你的自定义样式表, 不填则不输出'));
+    $form->addInput($custom_css);
+
+    // 夜间模式
+    $night_mode = new Typecho_Widget_Helper_Form_Element_Radio(
+        'night_mode',
+        array(
+            '0' => _t('关闭'),
+            '1' => _t('开启'),
+            '2' => _t('始终')
+        ),
+        '1',
+        _t('是否根据时间开启夜间模式'),
+        _t('在 22:00 - 5:00 期间自动开启夜间模式, 始终则为始终开启夜间模式')
+    );
+    $form->addInput($night_mode);
 
     // 显示建站日期
     $built_date = new Typecho_Widget_Helper_Form_Element_Text('built_date', NULL, NULL, _t('显示建站日期'), _t('在页面底部显示网站运行时长, 不填则不显示。格式为 <a>yyyy-MM-dd</a>, 如 2023-08-28'));
@@ -54,6 +77,14 @@ function themeConfig($form)
     );
     $form->addInput($enable_code_linenumber);
 
+    // 自定义文章时效
+    $article_term = new Typecho_Widget_Helper_Form_Element_Text('article_term', NULL, NULL, _t('显示文章时效'), _t('当文章发布时间超过阈值天数时, 显示文章内容可能已经过期的提示, 如 <a>180</a> 天, 不填则不输出'));
+    $form->addInput($article_term);
+
+    // 自定义文章时效文本
+    $custom_article_term = new Typecho_Widget_Helper_Form_Element_Text('custom_article_term', NULL, NULL, _t('自定义文章时效文本'), _t('使用 <a>%s</a> 代替天数, 如 <a>注意，这篇文章上次修改于 %s 天前，其内容可能已经失效</a>，不填则使用示例格式。需要先启用显示文章时效'));
+    $form->addInput($custom_article_term);
+
     // 主题评论区开关
     $enable_comment = new Typecho_Widget_Helper_Form_Element_Radio(
         'enable_comment',
@@ -71,47 +102,9 @@ function themeConfig($form)
     $custom_comment_hint = new Typecho_Widget_Helper_Form_Element_Text('custom_comment_hint', NULL, NULL, _t('自定义评论提示文本'), _t('要在评论输入框显示的提示文本, 如 <a>在这里输入评论</a>，不填则使用示例格式'));
     $form->addInput($custom_comment_hint);
 
-    // 自定义文章时效
-    $article_term = new Typecho_Widget_Helper_Form_Element_Text('article_term', NULL, NULL, _t('显示文章时效'), _t('当文章发布时间超过阈值天数时, 显示文章内容可能已经过期的提示, 如 <a>180</a> 天, 不填则不输出'));
-    $form->addInput($article_term);
-
-    // 自定义文章时效文本
-    $custom_article_term = new Typecho_Widget_Helper_Form_Element_Text('custom_article_term', NULL, NULL, _t('自定义文章时效文本'), _t('使用 <a>%s</a> 代替天数, 如 <a>注意，这篇文章上次修改于 %s 天前，其内容可能已经失效</a>，不填则使用示例格式。需要先启用显示文章时效'));
-    $form->addInput($custom_article_term);
-
-    // 自定义社交链接
-    $home_social = new Typecho_Widget_Helper_Form_Element_Textarea('home_social', NULL, NULL, _t('自定义社交链接'), _t('在这里填入你的自定义社交链接, 不填则不输出。(格式请看<a href="https://github.com/Dreamer-Paul/Single/releases/tag/1.1" target="_blank">帮助信息</a>)'));
-    $form->addInput($home_social);
-
-    // 自定义全站主题色
-    $custom_theme_color = new Typecho_Widget_Helper_Form_Element_Text('custom_theme_color', NULL, NULL, _t('全局强调色'), _t('在这里输入十六进制颜色, 如 <a>#6F9FC7</a>。留空则使用示例格式'));
-    $form->addInput($custom_theme_color);
-
-    // 自定义样式表
-    $custom_css = new Typecho_Widget_Helper_Form_Element_Textarea('custom_css', NULL, NULL, _t('自定义样式表'), _t('在这里填入你的自定义样式表, 不填则不输出'));
-    $form->addInput($custom_css);
-
-    // 统计代码
-    $custom_script = new Typecho_Widget_Helper_Form_Element_Textarea('custom_script', NULL, NULL, _t('统计代码'), _t('在这里填入你的统计代码, 不填则不输出。需要 <a>&lt;script&gt;</a> 标签'));
-    $form->addInput($custom_script);
-
     // 自定义作者信息
     $author_text = new Typecho_Widget_Helper_Form_Element_Textarea('author_text', NULL, NULL, _t('作者信息'), _t('显示在文章底部的作者信息, 不填则不输出'));
     $form->addInput($author_text);
-
-    // 夜间模式
-    $night_mode = new Typecho_Widget_Helper_Form_Element_Radio(
-        'night_mode',
-        array(
-            '0' => _t('关闭'),
-            '1' => _t('开启'),
-            '2' => _t('始终')
-        ),
-        '1',
-        _t('是否根据时间开启夜间模式'),
-        _t('在 22:00 - 5:00 期间自动开启夜间模式, 始终则为始终开启夜间模式')
-    );
-    $form->addInput($night_mode);
 
     // 复制提示
     $copy_notice = new Typecho_Widget_Helper_Form_Element_Radio(
@@ -126,7 +119,7 @@ function themeConfig($form)
     );
     $form->addInput($copy_notice);
 
-    // 自定义复制提示
+    // 自定义复制提示文本
     $custom_copy_notice = new Typecho_Widget_Helper_Form_Element_Textarea('custom_copy_notice', NULL, NULL, _t('自定义复制提示'), _t('自定义复制时弹出的提示内容, 不填则使用默认文本。需要先启用复制提示'));
     $form->addInput($custom_copy_notice);
 
@@ -171,4 +164,13 @@ function themeConfig($form)
         _t('文章页属性显示')
     );
     $form->addInput($post_meta->multiMode());
+
+    // 自定义社交链接
+    $home_social = new Typecho_Widget_Helper_Form_Element_Textarea('home_social', NULL, NULL, _t('自定义社交链接'), _t('在这里填入你的自定义社交链接, 不填则不输出。(格式请看<a href="https://github.com/Dreamer-Paul/Single/releases/tag/1.1" target="_blank">帮助信息</a>)'));
+    $form->addInput($home_social);
+
+    // 统计代码
+    $custom_script = new Typecho_Widget_Helper_Form_Element_Textarea('custom_script', NULL, NULL, _t('统计代码'), _t('在这里填入你的统计代码, 不填则不输出。需要 <a>&lt;script&gt;</a> 标签'));
+    $form->addInput($custom_script);
+
 }

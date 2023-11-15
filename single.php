@@ -23,8 +23,25 @@ class Single
 
         </style>
         <div class="detail">
-            <h2><?php echo self::$name . " (" . self::$version . ")" ?></h2>
+            <h1><?php echo self::$name . " (" . self::$version . ")" ?></h1>
             <p>By: <a href='https://github.com/Dreamer-Paul'>Dreamer-Paul</a> & <a href='https://github.com/azwhikaru'>Ayabe</a></p>
+        </div>
+    <?php
+    }
+
+    // 分割线
+    static function line()
+    {
+        ?>
+            <hr>
+        <?php
+    }
+
+    static function desc($text)
+    {
+    ?>
+        <div class="detail">
+            <h2><?php echo $text ?></h2>
         </div>
     <?php
     }
