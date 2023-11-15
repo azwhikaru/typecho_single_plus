@@ -21,12 +21,12 @@ function themeConfig($form)
     $language = new Typecho_Widget_Helper_Form_Element_Text('language', NULL, NULL, _t('站点语言'), _t('输入当前站点的主要语言, 如 <a>en</a> 或者 <a>es</a>。<b>默认自适应, 一般不用手动设置</b>'));
     $form->addInput($language);
 
-    // 自定义全站主题色
-    $custom_theme_color = new Typecho_Widget_Helper_Form_Element_Text('custom_theme_color', NULL, NULL, _t('全局强调色'), _t('在这里输入十六进制颜色, 如 <a>#6F9FC7</a>。留空则使用示例格式'));
+    // 自定义全局主题色
+    $custom_theme_color = new Typecho_Widget_Helper_Form_Element_Text('custom_theme_color', NULL, NULL, _t('全局主题色'), _t('在这里输入十六进制颜色, 如 <a>#FF8080</a>。留空则使用示例格式'));
     $form->addInput($custom_theme_color);
 
-    // 自定义全站焦点色
-    $custom_focus_color = new Typecho_Widget_Helper_Form_Element_Text('custom_focus_color', NULL, NULL, _t('全局焦点色'), _t('在这里输入十六进制颜色, 如 <a>#9FCFF7</a>, 建议使用与强调色相近的颜色。留空则使用示例格式'));
+    // 自定义全局强调色
+    $custom_focus_color = new Typecho_Widget_Helper_Form_Element_Text('custom_focus_color', NULL, NULL, _t('全局强调色'), _t('在这里输入十六进制颜色, 如 <a>#FFBFBF</a>, 建议使用与全局主题色相近的颜色。留空则使用示例格式'));
     $form->addInput($custom_focus_color);
 
     // 自定义资源引入
@@ -125,7 +125,7 @@ function themeConfig($form)
     $form->addInput($enable_comment);
 
     // 自定义评论关闭时的提示文本
-    $custom_disabled_comment_hint = new Typecho_Widget_Helper_Form_Element_Textarea('custom_disabled_comment_hint', NULL, NULL, _t('自定义评论关闭时的提示文本'), _t('当评论区关闭时显示的提示文本, 如 <a>评论已关闭</a>，不填则使用示例格式'));
+    $custom_disabled_comment_hint = new Typecho_Widget_Helper_Form_Element_Textarea('custom_disabled_comment_hint', NULL, NULL, _t('自定义评论关闭时的提示文本'), _t('当评论区关闭时显示的提示文本, 如 <a>评论已关闭</a>，不填则使用示例格式。需要先关闭主题评论区开关'));
     $form->addInput($custom_disabled_comment_hint);
 
     // 自定义评论提示文本
