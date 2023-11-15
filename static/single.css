@@ -746,6 +746,7 @@ article ul p:first-child{
 .article-list a{
     display: block;
     margin-bottom: .5em;
+    font-weight: 350;
 }
 
 .article-list .item-2:before,
