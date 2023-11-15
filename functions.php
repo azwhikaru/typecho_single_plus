@@ -54,6 +54,10 @@ function themeConfig($form)
     );
     $form->addInput($enable_comment);
 
+    // 自定义评论提示文本
+    $custom_comment_hint = new Typecho_Widget_Helper_Form_Element_Text('custom_comment_hint', NULL, NULL, _t('自定义评论提示文本'), _t('要在评论输入框显示的提示文本, 如 <a>在这里输入评论</a>，不填则使用示例格式'));
+    $form->addInput($custom_comment_hint);
+
     // 自定义文章时效
     $article_term = new Typecho_Widget_Helper_Form_Element_Text('article_term', NULL, NULL, _t('显示文章时效'), _t('当文章发布时间超过阈值天数时, 显示文章内容可能已经过期的提示, 如 <a>180</a> 天, 不填则不输出'));
     $form->addInput($article_term);
