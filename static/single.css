@@ -140,7 +140,7 @@ input, textarea, pre, hr, blockquote{
 
 .dark-theme blockquote{
     color: #ddd;
-    border-color: #eb9c26;
+    border-color: var(--theme);
     background-color: rgba(255, 255, 255, .05);
 }
 
