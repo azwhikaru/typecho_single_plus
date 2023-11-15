@@ -173,6 +173,14 @@ var Paul_Single = function (config) {
             code.classList.add('line-numbers');
         });
     }
+
+    // 网页语言设置
+    if (config.language) {
+        document.documentElement.setAttribute('lang', config.language);
+    } else {
+        document.documentElement.setAttribute('lang', navigator.language);
+    }
+    
 };
 
 // 图片缩放
