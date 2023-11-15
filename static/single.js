@@ -55,7 +55,7 @@ var Paul_Single = function (config) {
 
             var trees = ks.create("section", {
                 class: "article-list",
-                html: "<h4><span class=\"title\">目录</span></h4>"
+                html: "<h4><span class=\"title\">CONTENTS</span></h4>"
             });
 
             ks.each(headings, function (t) {
