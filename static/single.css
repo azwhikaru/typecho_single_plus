@@ -452,6 +452,7 @@ main img {
 .post-meta{
     overflow: auto;
     white-space: nowrap;
+    font-weight: 400;
 }
 .post-meta::-webkit-scrollbar{ height: 0 }
 
