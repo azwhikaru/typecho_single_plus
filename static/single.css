@@ -200,7 +200,7 @@ header{
     position: relative;
     line-height: 2.25em;
 }
-.head-menu a:hover{ color: #ffa628 }
+.head-menu a:hover{ color: var(--theme) }
 
 .head-menu .has-child > a:after{
     float: right;
