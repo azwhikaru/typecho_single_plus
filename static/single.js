@@ -175,11 +175,11 @@ var Paul_Single = function (config) {
     if (config.code_linenumber) {
         try {
             var code = content.querySelectorAll("code");
-            code.forEach(function(code) {
+            code.forEach(function (code) {
                 code.classList.add('line-numbers');
             });
         } catch (error) {
-            
+
         }
     }
 
@@ -189,11 +189,20 @@ var Paul_Single = function (config) {
     } else {
         document.documentElement.setAttribute('lang', navigator.language);
     }
-    
-};
 
-// 图片缩放
-ks.image(".post-content:not(.is-special) img, .page-content:not(.is-special) img");
+    // 图片显示
+    try {
+        var imgElements = document.getElementsByTagName('img')
+        for (var i = 0; i < imgElements.length; i++) {
+            var imgElement = imgElements[i];
+            new Viewer(imgElement, {
+                url: 'src',
+            });
+        }
+    } catch (error) {
+
+    }
+};
 
 // 请保留版权说明
 if (window.console && window.console.log) {
