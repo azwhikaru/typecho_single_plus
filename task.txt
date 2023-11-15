@@ -11,3 +11,4 @@
 代码行号 OK
 FEED 开关 OK
 主要语言 OK
+自定义 CDN OK
