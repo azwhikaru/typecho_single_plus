@@ -26,6 +26,10 @@
     --radius: .25em;
 }
 
+p{
+    font-weight: 400;
+}
+
 body{
     color: #555;
     font-weight: 300;
@@ -191,6 +195,7 @@ header{
     list-style: none;
     user-select: none;
     justify-content: center;
+    font-weight: 400;
 }
 
 .head-menu a{
@@ -391,7 +396,6 @@ main img {
 }
 
 .home-title h1{
-    color: #var(--theme);
     color: var(--theme);
 }
 
@@ -399,6 +403,7 @@ main img {
     display: block;
     margin-bottom: 1em;
     font-style: oblique;
+    font-weight: 350;
 }
 
 /* - 社交链接 */
