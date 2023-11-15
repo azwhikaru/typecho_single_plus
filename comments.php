@@ -73,7 +73,7 @@ function threadedComments($comments)
             </form>
         </div>
     <?php else : ?>
-        <p>博主关闭了评论...</p>
+        <p>评论已关闭</p>
     <?php endif; ?>
 
     <?php if ($comments->have()) : ?>

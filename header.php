@@ -44,7 +44,7 @@
             <meta property="og:image" content="<?php echo $hasImage; ?>" />
         <?php endif; ?>
     <?php endif; ?>
-    <?php $this->header('generator=&template=&pingback=&xmlrpc=&wlw='); ?>
+    <?php if ($this->options->enable_feed == 1) : ?><?php $this->header('generator=&template=&pingback=&xmlrpc=&wlw='); ?><?php endif; ?>
 </head>
 <body<?php Single::is_night() ?>>
     <header>

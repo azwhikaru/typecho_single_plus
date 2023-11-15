@@ -85,6 +85,20 @@ function themeConfig($form)
     $custom_article_term = new Typecho_Widget_Helper_Form_Element_Text('custom_article_term', NULL, NULL, _t('自定义文章时效文本'), _t('使用 <a>%s</a> 代替天数, 如 <a>注意，这篇文章上次修改于 %s 天前，其内容可能已经失效</a>，不填则使用示例格式。需要先启用显示文章时效'));
     $form->addInput($custom_article_term);
 
+    // Feed 开关
+    $enable_feed = new Typecho_Widget_Helper_Form_Element_Radio(
+        'enable_feed',
+        array(
+            '0' => _t('关闭'),
+            '1' => _t('开启'),
+        ),
+        '0',
+        _t('Feed 开关'),
+        _t('开启或关闭 HTML 中输出的 Feed 订阅源。<b>注意, 这个选项不会影响后端 Feed 接口, 只用于显示和隐藏前端 Feed</b>')
+    );
+    $form->addInput($enable_feed);
+
+
     // 主题评论区开关
     $enable_comment = new Typecho_Widget_Helper_Form_Element_Radio(
         'enable_comment',
