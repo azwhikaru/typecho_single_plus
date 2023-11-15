@@ -290,7 +290,10 @@ pre{
 }
 
 /* - 项目列表 */
-ul, ol{ margin-left: 1.25em }
+ul, ol{
+    margin-left: 1.25em;
+    font-weight: 400;
+}
 ul.clear, ol.clear{
     margin-left: 0;
     list-style: none;
