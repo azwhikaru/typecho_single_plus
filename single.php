@@ -2,8 +2,9 @@
 
 class Single
 {
-    static $name = "Single";
-    static $version = "2.1_Plus";
+    static $name = "Re:Single;";
+    // YEAR-SEASON-UN/COMPRESS-TYPECHO_VERSION
+    static $version = "20234DUT121";
 
     static $author = "", $authorCache = "";
 
