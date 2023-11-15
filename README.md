@@ -1,35 +1,37 @@
-# Single
+## Re:Single;
 
-一个简洁大气，含夜间模式的 Typecho 博客模板。
+基于 Single 主题，增加更多自定义功能的 Typecho 主题
 
-## 使用方法
+## 增强功能
 
-1. `Star` 本项目
-2. 从这里 [下载](https://github.com/Dreamer-Paul/Single/archive/master.zip) 主题源码
-3. 上传本主题，重命名为 `single` 并放置在 `usr/themes/` 目录下
-4. 登录你的 Typecho 后台，选择启用主题即可食用~
+在 Single 主题的基础上，本主题还添加了这些功能...
 
-## 主题故事
+### 站点自定义
 
-- 开发历程：[Single 主题与单身狗](https://paugram.com/essay/single-theme-and-single-dog.html)
-- 帮助文档 & 常见问题：[传送门](https://docs.paul.ren/single)
+- 在页面底部显示网站运行时间 (支持自定义)
+- 在页面底部显示服务器通电时间 (支持自定义)
+- 在页面底部显示 HTML (支持自定义)
 
-## 主题亮点
+### 外观
 
-简洁大气、夜间模式、文章目录、图片灯箱、代码高亮、平滑滚动、无 JQ 库。
+- 支持自定义全站强调色
 
-## 开源协议
+### 阅读
 
-本项目采用 MIT 开源协议进行授权，并在其基础上须保留原作者的版权注释（CSS、JS 等文件），当然能在页尾写上主题地址就是最好的啦~
+- 正文字体**加粗**
+- 支持显示代码行号
+- 文章目录样式优化
+- 支持自定义文章内容时效
+- 支持自定义文章内容失效时的提示文本
+- 支持自定义复制时的版权提示
 
-原创不易！如果喜欢本项目，请 `Star` 它以示对我的支持~
+### 优化
 
-同时欢迎前往 [我的博客](https://paugram.com/about.html#donate) 为我提供赞助，谢谢您！
+- 删除设置页面检查更新
 
-## 感谢
+### 杂项
 
-感谢来自开源社区提供的解决方案，简化了本项目的不少工作！
-
- - [Kico Style](https://github.com/Dreamer-Paul/Kico-Style)
- - [Font Awesome](https://github.com/FortAwesome/Font-Awesome)
- - [Prism](https://github.com/PrismJS/prism)
+- 支持开关全站评论区 (前端)
+- 支持开关 Feed 输出 (前端)
+- 部分代码格式化
+- 部分符号全半角优化
