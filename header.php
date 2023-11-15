@@ -16,10 +16,16 @@
     <?php else : ?>
         <link rel="icon" href="<?php $this->options->themeUrl('img/icon.png'); ?>" sizes="192x192" />
     <?php endif; ?>
+    <?php if ($this->options->custom_link_res) : echo $this->options->custom_link_res() ?>
+    <?php else : ?>
     <link href="<?php $this->options->themeUrl('static/kico.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php $this->options->themeUrl('static/single.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php $this->options->themeUrl('static/prism.min.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="https://fastly.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <script src="<?php $this->options->themeUrl('static/kico.js'); ?>"></script>
+    <script src="<?php $this->options->themeUrl('static/single.js'); ?>"></script>
+    <script src="<?php $this->options->themeUrl('static/prism.js'); ?>"></script>
+    <?php endif; ?>
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1" />
     <?php if ($this->options->background) : ?>
         <style>

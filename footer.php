@@ -59,9 +59,6 @@
     </div>
 </footer>
 
-<script src="<?php $this->options->themeUrl('static/kico.js'); ?>"></script>
-<script src="<?php $this->options->themeUrl('static/single.js'); ?>"></script>
-<script src="<?php $this->options->themeUrl('static/prism.js'); ?>"></script>
 <script>
     var single = new Paul_Single({
         copyright: <?php if ($this->options->copy_notice == 1) : ?>true<?php else : ?>false<?php endif; ?>,
@@ -72,6 +69,7 @@
         night: <?php if ($this->options->night_mode == 1) : ?>true<?php else : ?>false<?php endif; ?>
     });
 </script>
+
 <?php $this->options->custom_script(); ?>
 <?php $this->footer(); ?>
 

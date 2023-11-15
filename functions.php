@@ -25,6 +25,10 @@ function themeConfig($form)
     $custom_theme_color = new Typecho_Widget_Helper_Form_Element_Text('custom_theme_color', NULL, NULL, _t('全局强调色'), _t('在这里输入十六进制颜色, 如 <a>#6F9FC7</a>。留空则使用示例格式'));
     $form->addInput($custom_theme_color);
 
+    // 自定义资源引入
+    $custom_link_res = new Typecho_Widget_Helper_Form_Element_Textarea('custom_link_res', NULL, NULL, _t('自定义资源引入'), _t('设置自定义资源引用, 使用 CDN 加载资源时替换为 CDN 地址, <b>必须为绝对路径</b>。留空则使用本地资源'));
+    $form->addInput($custom_link_res);
+
     // 自定义样式表
     $custom_css = new Typecho_Widget_Helper_Form_Element_Textarea('custom_css', NULL, NULL, _t('自定义样式表'), _t('在这里填入你的自定义样式表, 不填则不输出'));
     $form->addInput($custom_css);
