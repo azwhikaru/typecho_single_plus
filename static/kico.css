@@ -655,7 +655,7 @@ form .inline label, fieldset.inline label{
 }
 
 table{
-    border: 0;
+    border: 1px solid #000;
     width: 100%;
     max-width: 100%;
     caption-side: bottom;
@@ -667,7 +667,10 @@ th:not([align]){
     text-align: -webkit-match-parent;
 }
 
-th, td{ padding: .75em }
+th, td{
+    padding: .75em;
+    font-weight: 400;
+}
 
 table thead tr{
     border-bottom: 2px solid #ccc;
