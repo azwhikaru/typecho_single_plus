@@ -26,6 +26,7 @@
 - 支持自定义文章内容时效
 - 支持自定义文章内容失效时的提示文本
 - 支持自定义复制时的版权提示
+- 支持显示文章阅读次数 (依赖插件 [Typecho-ViewsCounter](https://github.com/Quarkay/Typecho-ViewsCounter))
 
 ### 优化
 

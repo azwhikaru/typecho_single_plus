@@ -45,6 +45,9 @@ $this->need('header.php');
                         <?php if (!empty($this->options->archive_meta) && in_array('show_comments', $this->options->archive_meta) && $this->options->enable_comment) : ?>
                             <span class="comments"><?php $this->commentsNum('%d'); ?></span>
                         <?php endif; ?>
+                        <?php if ($this->options->enable_watch_count) : ?>
+                            <span class="fa-sharp fa-solid fa-eye fa-sm"><?php echo ViewsCounter_Plugin::getViews(); ?></span>
+                        <?php endif; ?>
                     </div>
                 </div>
             <?php endwhile; ?>

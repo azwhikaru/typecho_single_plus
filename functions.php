@@ -110,6 +110,18 @@ function themeConfig($form)
     );
     $form->addInput($enable_feed);
 
+    // 文章阅读数开关
+    $enable_watch_count = new Typecho_Widget_Helper_Form_Element_Radio(
+        'enable_watch_count',
+        array(
+            '0' => _t('关闭'),
+            '1' => _t('开启'),
+        ),
+        '0',
+        _t('文章阅读数开关'),
+        _t('开启或关闭文章阅读数。<b>依赖插件 Quarkay/Typecho-ViewsCounter</b>')
+    );
+    $form->addInput($enable_watch_count);
 
     // 主题评论区开关
     $enable_comment = new Typecho_Widget_Helper_Form_Element_Radio(
