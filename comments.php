@@ -56,11 +56,11 @@
     <?php } ?>
 
     <section class="post-comments" id="comments">
-        <h3>
-            <?php $this->commentsNum(_t('没有评论'), _t('共有 %d 条评论'), _t('共有 %d 条评论')); ?>
-        </h3>
         <?php $this->comments()->to($comments); ?>
         <?php if ($this->allow('comment')): ?>
+            <h3>
+            <?php $this->commentsNum(_t('没有评论'), _t('共有 %d 条评论'), _t('共有 %d 条评论')); ?>
+            </h3>
             <div class="comment-form" id="<?php $this->respondId(); ?>">
                 <span class="cancel-comment-reply">
                     <?php $comments->cancelReply(); ?>
@@ -95,7 +95,7 @@
                 </form>
             </div>
         <?php else: ?>
-            <p>评论已关闭</p>
+            <p align='center'>这篇文章不允许被评论</p>
         <?php endif; ?>
 
         <?php if ($comments->have()): ?>
