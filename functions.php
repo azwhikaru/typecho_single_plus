@@ -76,6 +76,40 @@ function themeConfig($form)
     $custom_show_uptime = new Typecho_Widget_Helper_Form_Element_Text('custom_show_uptime', NULL, NULL, _t('自定义服务器开机时长文本'), _t('依次使用 4 个 <a>%d</a> 代替天、时、分、秒, 如 <a>已连续运行 %d 天 %d 时 %d 分 %d 秒</a>, 不填则使用示例格式。需要先启用显示服务器开机时长'));
     $form->addInput($custom_show_uptime);
 
+    // 显示页面载入耗时
+    $show_loading_timer = new Typecho_Widget_Helper_Form_Element_Radio(
+        'show_loading_timer',
+        array(
+            '0' => _t('关闭'),
+            '1' => _t('开启'),
+        ),
+        '0',
+        _t('显示页面载入耗时'),
+        _t('在页面底部显示本次页面载入所耗费的时间。配置方法参考: <a>https://roadtothe.top/45.html</a>')
+    );
+    $form->addInput($show_loading_timer);
+
+    // 自定义页面载入耗时文本
+    $custom_loading_timer = new Typecho_Widget_Helper_Form_Element_Text('custom_loading_timer', NULL, NULL, _t('自定义页面载入耗时文本'), _t('使用 <a>%s</a> 代替具体时间, 如 <a>载入本页面耗时 %s 秒</a>, 不填则使用示例格式。需要先启用显示页面载入耗时'));
+    $form->addInput($custom_loading_timer);
+
+    // 显示 SQL 查询次数
+    $show_sql_count = new Typecho_Widget_Helper_Form_Element_Radio(
+        'show_sql_count',
+        array(
+            '0' => _t('关闭'),
+            '1' => _t('开启'),
+        ),
+        '0',
+        _t('显示 SQL 查询次数'),
+        _t('在页面底部显示本次页面载入所运行的 SQL 次数。配置方法参考: <a>https://roadtothe.top/45.html</a>')
+    );
+    $form->addInput($show_sql_count);
+
+    // 自定义 SQL 查询次数文本
+    $custom_sql_count = new Typecho_Widget_Helper_Form_Element_Text('custom_sql_count', NULL, NULL, _t('自定义 SQL 查询次数文本'), _t('使用 <a>%s</a> 代替具体数值, 如 <a>载入本页面运行了 %s 次 SQL</a>, 不填则使用示例格式。需要先启用显示 SQL 查询次数'));
+    $form->addInput($custom_sql_count);
+
     // 行号显示开关开关
     $enable_code_linenumber = new Typecho_Widget_Helper_Form_Element_Radio(
         'enable_code_linenumber',
