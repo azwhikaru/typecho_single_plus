@@ -655,7 +655,7 @@ form .inline label, fieldset.inline label{
 }
 
 table{
-    border: 1px solid #000;
+    border: 2px solid #CCCCCC;
     width: 100%;
     max-width: 100%;
     caption-side: bottom;
