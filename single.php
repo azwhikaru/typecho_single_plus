@@ -3,8 +3,7 @@
 class Single
 {
     static $name = "Re:Single;";
-    // YEAR-SEASON-UN/COMPRESS-TYPECHO_VERSION
-    static $version = "20234DUT121";
+    static $version = "2312";
 
     static $author = "", $authorCache = "";
 

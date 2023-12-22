@@ -10,31 +10,31 @@ function themeConfig($form)
     Single::update();
 
     // 自定义站点图标
-    $favicon = new Typecho_Widget_Helper_Form_Element_Text('favicon', NULL, NULL, _t('站点图标 (Favicon)'), _t('在这里填入图片地址, 不填则使用默认图标'));
+    $favicon = new Typecho_Widget_Helper_Form_Element_Text('favicon', NULL, NULL, _t('站点图标 (favicon.ico)'), _t('设置站点图标，留空则使用默认图标'));
     $form->addInput($favicon);
 
     // 自定义背景图
-    $background = new Typecho_Widget_Helper_Form_Element_Text('background', NULL, NULL, _t('背景图片'), _t('在这里填入一张图片地址, 不填则显示纯色背景'));
+    $background = new Typecho_Widget_Helper_Form_Element_Text('background', NULL, NULL, _t('背景图片'), _t('设置全局背景图，留空则不启用全局背景图'));
     $form->addInput($background);
 
     // 自定义站点语言
-    $language = new Typecho_Widget_Helper_Form_Element_Text('language', NULL, NULL, _t('站点语言'), _t('输入当前站点的主要语言, 如 <a>en</a> 或者 <a>es</a>。<b>默认自适应, 一般不用手动设置</b>'));
+    $language = new Typecho_Widget_Helper_Form_Element_Text('language', NULL, NULL, _t('站点语言'), _t('告诉浏览器和搜索引擎站点的主要语言, 如 <a>en</a> 或者 <a>es</a>。<b>默认自适应, 一般不用手动设置</b>'));
     $form->addInput($language);
 
     // 自定义全局主题色
-    $custom_theme_color = new Typecho_Widget_Helper_Form_Element_Text('custom_theme_color', NULL, NULL, _t('全局主题色'), _t('在这里输入十六进制颜色, 如 <a>#FF8080</a>。留空则使用示例格式'));
+    $custom_theme_color = new Typecho_Widget_Helper_Form_Element_Text('custom_theme_color', NULL, NULL, _t('主题色'), _t('设置全局主题色， 如 <a>#FF8080</a>'));
     $form->addInput($custom_theme_color);
 
     // 自定义全局强调色
-    $custom_focus_color = new Typecho_Widget_Helper_Form_Element_Text('custom_focus_color', NULL, NULL, _t('全局强调色'), _t('在这里输入十六进制颜色, 如 <a>#FFBFBF</a>, 建议使用与全局主题色相近的颜色。留空则使用示例格式'));
+    $custom_focus_color = new Typecho_Widget_Helper_Form_Element_Text('custom_focus_color', NULL, NULL, _t('强调色'), _t('设置全局强调色, 如 <a>#FFBFBF</a>, <b>建议使用与全局主题色相近的颜色</b>'));
     $form->addInput($custom_focus_color);
 
     // 自定义资源引入
-    $custom_link_res = new Typecho_Widget_Helper_Form_Element_Textarea('custom_link_res', NULL, NULL, _t('自定义资源引入'), _t('设置自定义资源引用, 使用 CDN 加载资源时替换为 CDN 地址, <b>必须为绝对路径</b>。留空则使用本地资源'));
+    $custom_link_res = new Typecho_Widget_Helper_Form_Element_Textarea('custom_link_res', NULL, NULL, _t('自定义静态资源'), _t('设置全局静态资源, 例如使用 CDN 加载资源时替换为 CDN 地址, <b>必须为绝对路径</b>。留空则使用本地资源'));
     $form->addInput($custom_link_res);
 
     // 自定义样式表
-    $custom_css = new Typecho_Widget_Helper_Form_Element_Textarea('custom_css', NULL, NULL, _t('自定义样式表'), _t('在这里填入你的自定义样式表, 不填则不输出'));
+    $custom_css = new Typecho_Widget_Helper_Form_Element_Textarea('custom_css', NULL, NULL, _t('自定义样式表'), _t('添加额外的 CSS'));
     $form->addInput($custom_css);
 
     // 夜间模式
@@ -52,7 +52,7 @@ function themeConfig($form)
     $form->addInput($night_mode);
 
     // 显示建站日期
-    $built_date = new Typecho_Widget_Helper_Form_Element_Text('built_date', NULL, NULL, _t('显示建站日期'), _t('在页面底部显示网站运行时长, 不填则不显示。格式为 <a>yyyy-MM-dd</a>, 如 2023-08-28'));
+    $built_date = new Typecho_Widget_Helper_Form_Element_Text('built_date', NULL, NULL, _t('显示建站日期'), _t('在页面底部显示网站运行时长。格式为 <a>yyyy-MM-dd</a>, 如 2023-08-28'));
     $form->addInput($built_date);
 
     // 自定义建站日期文本
@@ -68,7 +68,7 @@ function themeConfig($form)
         ),
         '0',
         _t('显示服务器开机时长'),
-        _t('在页面底部显示服务器开机时长 (<a>uptime</a>)。只支持 Linux')
+        _t('在页面底部显示服务器开机时长 (uptime)。<a>只支持 Linux，需要在 PHP 安全策略中允许执行 shell_exec</a>')
     );
     $form->addInput($show_uptime);
 
@@ -85,7 +85,7 @@ function themeConfig($form)
         ),
         '0',
         _t('显示页面载入耗时'),
-        _t('在页面底部显示本次页面载入所耗费的时间。配置方法参考: <a>https://roadtothe.top/45.html</a>')
+        _t('在页面底部显示本次页面载入所耗费的时间。配置方法参见: <a>https://roadtothe.top/45.html</a>')
     );
     $form->addInput($show_loading_timer);
 
@@ -119,7 +119,7 @@ function themeConfig($form)
         ),
         '0',
         _t('代码行号显示'),
-        _t('开启或关闭 Prism 行号显示, 注意当前 Prism 需包含行号显示功能')
+        _t('开启或关闭 Prism.JS 行号显示')
     );
     $form->addInput($enable_code_linenumber);
 
@@ -140,7 +140,7 @@ function themeConfig($form)
         ),
         '0',
         _t('Feed 开关'),
-        _t('开启或关闭 HTML 中输出的 Feed 订阅源。<b>注意, 这个选项不会影响后端 Feed 接口, 只用于显示和隐藏前端 Feed</b>')
+        _t('开启或关闭 HTML 中输出的 Feed 订阅源。<b>不会影响后端 Feed 接口, 只用于显示和隐藏前端 Feed</b>')
     );
     $form->addInput($enable_feed);
 
@@ -166,7 +166,7 @@ function themeConfig($form)
         ),
         '0',
         _t('主题评论区开关'),
-        _t('开启或关闭主题评论区。<b>注意, 这个选项不会影响后端评论接口, 只用于显示和隐藏前端评论区</b>')
+        _t('开启或关闭主题评论区。<b>不会影响后端评论接口, 只用于显示和隐藏前端评论区</b>')
     );
     $form->addInput($enable_comment);
 
@@ -174,12 +174,29 @@ function themeConfig($form)
     $custom_disabled_comment_hint = new Typecho_Widget_Helper_Form_Element_Textarea('custom_disabled_comment_hint', NULL, NULL, _t('自定义评论关闭时的提示文本'), _t('当评论区关闭时显示的提示文本, 如 <a>评论已关闭</a>，不填则使用示例格式。需要先关闭主题评论区开关'));
     $form->addInput($custom_disabled_comment_hint);
 
+    // 使用 giscus 作为评论系统
+    $use_giscus_as_comment = new Typecho_Widget_Helper_Form_Element_Radio(
+        'use_giscus_as_comment',
+        array(
+            '0' => _t('关闭'),
+            '1' => _t('开启'),
+        ),
+        '0',
+        _t('使用 giscus 作为评论系统'),
+        _t('替换 Typecho 的评论区为 giscus。<b>需要先开启主题评论区</b>')
+	);
+	$form->addInput($use_giscus_as_comment);
+
+	// giscus 代码
+	$giscus_code = new Typecho_Widget_Helper_Form_Element_Textarea('giscus_code', NULL, NULL, _t('giscus 代码'), _t('在 <a>https://giscus.app/zh-CN</a> 生成 HTML 代码，然后把它粘贴在这里'));
+	$form->addInput($giscus_code);
+
     // 自定义评论提示文本
-    $custom_comment_hint = new Typecho_Widget_Helper_Form_Element_Textarea('custom_comment_hint', NULL, NULL, _t('自定义评论提示文本'), _t('要在评论输入框显示的提示文本, 如 <a>在这里输入评论</a>，不填则使用示例格式'));
+    $custom_comment_hint = new Typecho_Widget_Helper_Form_Element_Textarea('custom_comment_hint', NULL, NULL, _t('自定义评论提示文本'), _t('要在评论输入框显示的提示文本, 如 <a>在这里输入评论</a>'));
     $form->addInput($custom_comment_hint);
 
     // 自定义作者信息
-    $author_text = new Typecho_Widget_Helper_Form_Element_Textarea('author_text', NULL, NULL, _t('作者信息'), _t('显示在文章底部的作者信息, 不填则不输出'));
+    $author_text = new Typecho_Widget_Helper_Form_Element_Textarea('author_text', NULL, NULL, _t('作者信息'), _t('在文章底部输出作者信息'));
     $form->addInput($author_text);
 
     // 复制提示

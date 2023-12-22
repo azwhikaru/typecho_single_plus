@@ -1,6 +1,12 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <?php $this->need('header.php'); ?>
 
+<!-- Prism.JS 加载 -->
+<link href="<?php $this->options->themeUrl('static/prism.min.css'); ?>" rel="stylesheet" type="text/css" />
+<script src="<?php $this->options->themeUrl('static/prism.js'); ?>"></script>
+<!-- Viewer.JS 加载 -->
+<script src="<?php $this->options->themeUrl('static/viewer.min.js'); ?>"></script>
+
 <main>
     <div class="wrap min">
         <section class="post-title">

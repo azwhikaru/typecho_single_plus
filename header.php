@@ -3,7 +3,28 @@
 <html>
 
 <head>
+	<!-- 元数据开始 -->
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="keywords" content="<?php $this->options->keywords(); ?>" />
+	<meta name="generator" content="<?php $this->options->generator(); ?>" />
+	<meta name="template" content="ReSingle" />
+	<meta property="og:site_name" content="<?php $this->options->title(); ?>" />
+	<?php if ($this->is("post")) : ?><meta property="og:type" content="article" />
+	<meta property="og:url" content="https://hellodk.cn/post/1014" />
+	<meta property="og:title" content="<?php $this->archiveTitle("", ""); ?>" />
+	<meta property="og:description" content="<?php echo $this->description; ?>" />
+	<?php if ($hasImage) : ?><meta property="og:image" content="<?php echo $hasImage; ?>" /><?php endif; ?>
+<meta property="og:category" content="<?php $this->category(',', false); ?>" />
+	<meta property="article:author" content="<?php $this->author(); ?>" />
+	<meta property="article:publisher" content="<?php $this->options->siteUrl(); ?>" />
+	<meta property="article:published_time" content="<?php $this->date('c'); ?>" />
+	<meta property="article:published_first" content="<?php $this->options->title() ?>, <?php $this->permalink() ?>" />
+	<meta property="article:tag" content="<?php $this->keywords(',');?>" />
+	<?php endif; ?>
+<!-- 元数据结束 -->
     <title><?php $this->archiveTitle(array(
                 'category'  =>  _t('%s'),
                 'search'    =>  _t('含关键词 %s 的文章'),
@@ -12,21 +33,18 @@
             ), '', ' - ');
             $this->options->title(); ?></title>
     <?php if ($this->options->favicon) : ?>
-        <link rel="icon" href="<?php $this->options->favicon(); ?>" sizes="192x192" />
+    <link rel="icon" href="<?php $this->options->favicon(); ?>" sizes="192x192" />
     <?php else : ?>
-        <link rel="icon" href="<?php $this->options->themeUrl('img/icon.png'); ?>" sizes="192x192" />
+    <link rel="icon" href="<?php $this->options->themeUrl('img/icon.png'); ?>" sizes="192x192" />
     <?php endif; ?>
     <?php if ($this->options->custom_link_res) : echo $this->options->custom_link_res() ?>
     <?php else : ?>
     <link href="<?php $this->options->themeUrl('static/kico.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php $this->options->themeUrl('static/single.css'); ?>" rel="stylesheet" type="text/css" />
-    <link href="<?php $this->options->themeUrl('static/prism.min.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php $this->options->themeUrl('static/viewer.min.css'); ?>" rel="stylesheet" type="text/css" />
     <link href="<?php $this->options->themeUrl('static/font-awesome.min.css'); ?>" rel="stylesheet" type="text/css" />
     <script src="<?php $this->options->themeUrl('static/kico.js'); ?>"></script>
     <script src="<?php $this->options->themeUrl('static/single.js'); ?>"></script>
-    <script src="<?php $this->options->themeUrl('static/prism.js'); ?>"></script>
-    <script src="<?php $this->options->themeUrl('static/viewer.min.js'); ?>"></script>
     <?php endif; ?>
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1" />
     <?php if ($this->options->background) : ?>
@@ -38,19 +56,9 @@
         </style>
     <?php endif; ?>
     <?php if ($this->options->custom_css) : ?>
-        <style>
-            <?php $this->options->custom_css(); ?>
-        </style>
-    <?php endif; ?>
-    <meta property="og:site_name" content="<?php $this->options->title(); ?>">
-    <?php if ($this->is("post")) : ?>
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="<?php $this->archiveTitle("", ""); ?>" />
-        <meta property="og:description" content="<?php echo $this->description; ?>" />
-        <?php $hasImage = Single::post_image(); ?>
-        <?php if ($hasImage) : ?>
-            <meta property="og:image" content="<?php echo $hasImage; ?>" />
-        <?php endif; ?>
+    <style>
+    	<?php $this->options->custom_css(); ?>
+    </style>
     <?php endif; ?>
     <?php if ($this->options->enable_feed == 1) : ?><?php $this->header('generator=&template=&pingback=&xmlrpc=&wlw='); ?><?php endif; ?>
 </head>

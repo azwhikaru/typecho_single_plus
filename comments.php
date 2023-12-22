@@ -2,9 +2,11 @@
     exit; ?>
 
 <?php if ($this->options->enable_comment): ?>
-    <?php
-
-    function threadedComments($comments)
+	<?php if($this->options->use_giscus_as_comment): ?>
+	<?php echo $this->options->giscus_code() ?>
+	<?php else: ?>
+	<?php
+	function threadedComments($comments)
     {
         $commentLevelClass = $comments->levels > 0 ? " comment-child" : "";
 
@@ -55,7 +57,7 @@
 
     <?php } ?>
 
-    <section class="post-comments" id="comments">
+	<section class="post-comments" id="comments">
         <?php $this->comments()->to($comments); ?>
         <?php if ($this->allow('comment')): ?>
             <h3>
@@ -106,6 +108,6 @@
         <?php endif; ?>
 
     </section>
-<?php else: ?>
-    <p align="center"><?php echo $this->options->custom_disabled_comment_hint ? $this->options->custom_disabled_comment_hint : "评论已关闭" ?></p>
+
+	<?php endif; ?>
 <?php endif; ?>

@@ -163,7 +163,16 @@ var Paul_Single = function (config) {
 
     // 全站主题色自定义
     if (config.theme_color) {
-        document.body.style.setProperty('--theme', config.theme_color)
+		document.addEventListener("DOMContentLoaded", function() {
+        	document.body.style.setProperty('--theme', config.theme_color)
+			// 代码块颜色修改
+			var codeElements = document.querySelectorAll('pre[class*="language-"]>code')
+			codeElements.forEach(function(codeElement) {
+				// 修改为主题色
+				var computedStyle = getComputedStyle(codeElement)
+				codeElement.style.borderLeftColor = config.theme_color
+			});
+		});
     }
 
     // 全站焦点色自定义
